@@ -33,7 +33,7 @@ lake_spd <- as_Spatial(lake)
 rl_sum_sf <- read_rds(here("Data",
                            "receiver locations",
                            "rl_sum_sf.rds"))
-
+# change rec_group to factor 
 rl_sum_sf <- rl_sum_sf %>% 
   mutate(rec_group = factor(rec_group, 
                             levels = c("Head",
@@ -46,7 +46,7 @@ rl_sum_spd <- as_Spatial(rl_sum_sf)
 
 # rasterize shapefile  -----
 # transform spatialpolygonsdataframe into UTMS
-#  # You will need to replace zone with the correct UTM ZONE
+# You will need to replace zone with the correct UTM ZONE
 r <- spTransform(lake_spd, CRS("+proj=utm +zone=15 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"))
 
 # plot them
@@ -107,7 +107,7 @@ rec_compare <- rec_sum %>%
 
 
 
-# create a subset to test map function on -----
+# create a subset to test map function -----
 # rec_5 <- rec_compare %>%
 #   filter(id < 5)
 
