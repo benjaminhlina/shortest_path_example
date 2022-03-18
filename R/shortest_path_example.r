@@ -37,6 +37,13 @@ rl_sum_sf <- read_rds(here("Data",
                            "receiver locations",
                            "rl_sum_sf.rds"))
 
+rl_sum_sf <- rl_sum_sf %>% 
+  mutate(rec_group = factor(rec_group, 
+                            levels = c("Head",
+                                       "Neck",
+                                       "Body",
+                                       "Arm",
+                                       "Legs")))
 # create spatialpointsdataframe
 rl_sum_spd <- as_Spatial(rl_sum_sf)
 
