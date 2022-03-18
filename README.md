@@ -30,3 +30,5 @@ secondly to determine the shortest distance between each receiver.
 The sf object created can then be kept together or ripped apart 
 to determine the distance or path a fish could swim within the system along with
 a whole host of other potential implications (e.g. interpolated paths).
+
+Credit: R. Lennox, PhD for the original ideas around this script.  
