@@ -78,12 +78,6 @@ trans <- transition(x = s, transitionFunction = mean, directions = 16)
 # You will need to replace zone with the correct UTM ZONE
 rec_sum <- spTransform(rl_sum_spd, CRS("+proj=utm +zone=15 +ellps=WGS84 +datum=WGS84 +units=m +no_defs")) %>%
   as_tibble() %>%
-  mutate(rec_group = factor(rec_group, 
-                            levels = c("Head",
-                                       "Neck",
-                                       "Body",
-                                       "Arm",
-                                       "Legs"))) %>% 
   rename(lon = coords.x1,
          lat = coords.x2) %>%
   arrange(lon)
