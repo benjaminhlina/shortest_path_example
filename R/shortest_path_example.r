@@ -6,13 +6,10 @@ library(here)
 library(purrr)
 library(raster)
 library(readr)
-library(rgdal)
-library(rgeos)
 library(sf)
 library(sp)
 library(tibble)
 library(tidyr)
-
 
 #### GOAL - Create shortest distance between Acoustic Telemetry Receivers -----
 
@@ -145,7 +142,7 @@ rec_dist_sf <- rec_dist_sf %>%
   dplyr::select(id, from:to_lat, cost_dist, geometry)
 
 rec_dist_sf
-  
+
 # covert sf objects from Lat Long to UTM ----
 # You will need to replace zone with the correct UTM ZONE
 lake_utm <- st_transform(lake, crs = 32615)
@@ -155,10 +152,9 @@ rl_sum_utm <- st_transform(rl_sum_sf, crs = 32615)
 ggplot() +
   geom_sf(data = lake_utm) +
   geom_sf(data = rec_dist_sf, aes(colour = cost_dist), size = 1) +
-  geom_sf(data = rl_sum_utm, size = 6, aes(shape = rec_group)) +
+  geom_sf(data = rl_sum_utm, size = 4) +
   scale_colour_viridis_c(name = "Cost Distance (m)", option = "B") +
   theme_bw() +
   theme(panel.grid = element_blank()) +
   labs(x = "Longitude",
        y = "Latitude")
-
