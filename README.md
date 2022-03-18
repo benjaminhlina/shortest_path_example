@@ -9,7 +9,7 @@ spatial shape.
 
 
 # Example Study Site 
-I choose to use Big Sissabagama lake located in northwest Wisconsin, USA as the 
+I chose to use Big Sissabagama lake located in northwest Wisconsin, USA as the 
 example study system.
 
 ![](./Plots/big_sissabagama_lake.png)
