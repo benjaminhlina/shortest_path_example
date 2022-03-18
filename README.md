@@ -27,5 +27,6 @@ secondly to determine the shortest distance between each receiver.
 
 ![](./Plots/big_sissabagama_lake_cost_dist.png)
 
-The sf object created can then be kept together or ripped apart to use the distances
-to determine the distance or path a fish could swim within the system. 
+The sf object created can then be kept together or ripped apart 
+to determine the distance or path a fish could swim within the system along with
+a whole host of other potential implications (e.g. interpolated paths).
