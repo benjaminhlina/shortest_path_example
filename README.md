@@ -7,6 +7,9 @@ track fish movements. However, it could be used for other situations where
 you would want to determine the shortest distance between points within a confined
 spatial shape. 
 
+To use the tutorial, click the green code button to download the repository as either
+a zip file or clone it using GitHub Desktop.
+
 
 # Example Study Site 
 I chose to use Big Sissabagama lake located in northwest Wisconsin, USA as the 
@@ -14,15 +17,15 @@ example study system.
 
 ![](./Plots/big_sissabagama_lake.png)
 
-This is the lake I grew up fishing on and for the sake of this tutorial, 
+I grew up fishing on this lake and for the sake of this tutorial, 
 we will hypothetically have deployed 
 an acoustic telemetry array within the lake to study walleye movements. 
 
 ![](./Plots/big_sissabagama_lake_receivers.png)
 
 From this plot we can use functions from [{gdistance}](https://agrdatasci.github.io/gdistance/) and  [{sf}](https://r-spatial.github.io/sf/)
-packages to first create linestrings between each receiver and 
-secondly to determine the shortest distance between each receiver. 
+packages to first create shortest path linestrings between each receiver and 
+secondly to determine the distance of the linestrings between each receiver. 
 
 
 ![](./Plots/big_sissabagama_lake_cost_dist.png)
