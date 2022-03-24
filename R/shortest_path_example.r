@@ -76,13 +76,18 @@ trans <- transition(x = s, transitionFunction = mean, directions = 16)
 
 # transform rec points to utms -----
 # You will need to replace zone with the correct UTM ZONE
+# need to arrange receiver name as factor for metadata based on the same order of 
+# lon. Do the same with receiver groupings 
 rec_sum <- spTransform(rl_sum_spd, CRS("+proj=utm +zone=15 +ellps=WGS84 +datum=WGS84 +units=m +no_defs")) %>%
   as_tibble() %>%
   rename(lon = coords.x1,
          lat = coords.x2) %>%
-  arrange(lon)
-
-
+  arrange(lon) %>% 
+  mutate(rec_name = factor(rec_name, 
+                           levels = c("2", "1", "11", "3",
+                                      "4", "10", "5", "9", 
+                                      "8", "12", "6", "7", 
+                                      "13", "14", "15"))) 
 
 # create a to and from list using rec group names
 from_to <- rec_sum %>%
@@ -90,7 +95,10 @@ from_to <- rec_sum %>%
   mutate(from = rec_name,
          to = rec_name) %>%
   expand(from, to) %>%
-  mutate(from_to = paste0(from, "-", to))
+  mutate(from_to = paste0(from, "-", to)) %>% 
+  rownames_to_column("id") %>% 
+  mutate(id = as.numeric(id))
+
 
 # create rec lat and long compare tibble -----
 rec_compare <- rec_sum %>%
@@ -104,7 +112,6 @@ rec_compare <- rec_sum %>%
   separate(llonllat, c("llon", "llat"), ",") %>%
   rownames_to_column("id") %>%
   mutate_if(is.character, function(x) as.numeric(x))
-
 
 
 # create a subset to test map function -----
@@ -132,7 +139,7 @@ rec_dist_sf <- rec_dist_sf %>%
          from_lon = rec_compare$lon,
          from_lat = rec_compare$lat,
          to_lon = rec_compare$llon,
-         to_lat = rec_compare$llat) %>% 
+         to_lat = rec_compare$llat,) %>% 
   dplyr::select(id, from:to_lat, cost_dist, geometry)
 
 rec_dist_sf
