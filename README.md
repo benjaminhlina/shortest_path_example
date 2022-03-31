@@ -23,7 +23,7 @@ an acoustic telemetry array within the lake to study walleye movements.
 
 ![](./Plots/big_sissabagama_lake_receivers.png)
 
-From this plot we can use functions from [{gdistance}](https://agrdatasci.github.io/gdistance/) and  [{sf}](https://r-spatial.github.io/sf/)
+From this plot we can use the function `shortestPath()` from [{gdistance}](https://agrdatasci.github.io/gdistance/) and  `st_as_sf()` from [{sf}](https://r-spatial.github.io/sf/)
 packages to first create shortest path linestrings between each receiver and 
 secondly to determine the distance of the linestrings between each receiver. 
 
