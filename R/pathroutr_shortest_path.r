@@ -292,9 +292,4 @@ ggplot() +
   theme_bw() + 
   theme(panel.grid = element_blank()) + 
   labs(x = "Longitude", 
-       y = "Latitude") -> p
-p 
-
-ggsave(filename = here("Plots",
-                       "big_sissabagama_lake_cost_dist_pathroutr.png"),
-       plot = p, width = 8.5, height = 8.5)
+       y = "Latitude") 
