@@ -10,6 +10,12 @@ spatial shape.
 To use the tutorial, click the green code button to download the repository as either
 a zip file or clone it using GitHub Desktop.
 
+You can also download it in R using the following code and prompts: 
+
+```r
+usethis::use_course("https://github.com/benjaminhlina/shortest_path_example/archive/refs/heads/master.zip")
+```
+
 
 # Example Study Site 
 I chose to use Big Sissabagama lake located in northwest Wisconsin, USA as the 
