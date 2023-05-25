@@ -13,6 +13,8 @@ a zip file or clone it using GitHub Desktop.
 You can also download it in R using the following code and prompts: 
 
 ```r
+
+install.packages("usethis")
 usethis::use_course("https://github.com/benjaminhlina/shortest_path_example/archive/refs/heads/master.zip")
 ```
 
