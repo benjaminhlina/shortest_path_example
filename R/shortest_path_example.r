@@ -110,7 +110,7 @@ rec_order <- prep_path %>%
       ) %>% 
       st_drop_geometry() %>% # remove sf 
       rename(from = rec_name) %>% 
-      dplyr::select(from, lon, lat), ., by = c("lon", "lat"), 
+      dplyr::select(from, lon, lat), by = c("lon", "lat"), 
     multiple = "all"
   ) %>%  # join for the tos  
   left_join(
@@ -121,7 +121,7 @@ rec_order <- prep_path %>%
       st_drop_geometry() %>% 
       rename(to = rec_name,
              llon = lon) %>% 
-      dplyr::select(to, llon), ., by = c("llon"), 
+      dplyr::select(to, llon), by = c("llon"), 
     multiple = "all"
   ) %>% 
   mutate(
