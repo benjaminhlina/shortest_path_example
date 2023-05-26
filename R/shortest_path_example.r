@@ -4,7 +4,6 @@
   library(gdistance)
   library(ggplot2)
   library(here)
-  
   library(lwgeom)
   library(purrr)
   library(raster)
@@ -17,19 +16,7 @@
     st_linestring(matrix(c(lon, llon, lat, llat), 2, 2))
   }
 }
-# library(RSP)
-# library(actel)
-# 
-# library(actel)
-# filtered_data <- explore(tz = "Europe/Copenhagen")
-# 
-# 
-# remotes::install_github("YuriNiella/RSP", build_opts = c("--no-resave-data", "--no-manual"), force = TRUE, 
-#                         build_vignettes = TRUE)
 # ---- GOAL - Create shortest distance between Acoustic Telemetry Receivers -----
-# usethis::create_github_token()
-# gitcreds::gitcreds_set() 
-# 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
 # ---- bring in shapefile ----
 # replace sissabagma_lake with your shapefile 
 # I choose Big Siss as an example as this is the lake I grew up fishing on 
@@ -83,13 +70,10 @@ s <- rasterize(x = r, y = s, field = 1)
 #  it looks appropriate
 plot(s)
 
-
 # create transition layer with directions being queens space
 # if in larger systems direction could be reduced from queens space to 
 # rook or king, 4 or 8 
 trans <- transition(x = s, transitionFunction = mean, directions = 16)
-
-
 
 # ---- prep path to determine shortest length ----
 # convert receiver location sf object to table with each rec possibility 
@@ -112,7 +96,6 @@ prep_path <- rl_sum_sf %>%
   mutate_if(is.character, function(x) as.numeric(x)) 
 
 prep_path
-
 
 # ---- Create df that is each rec combo linked to lat long for combo ----
 
